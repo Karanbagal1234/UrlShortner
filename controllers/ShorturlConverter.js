@@ -5,6 +5,7 @@ export const ShorturlConverter = async (req, res,next) => {
   console.log("functiom triggger");
   
   try {
+    
     const { OrignalUrl } = req.body;
     
     console.log(OrignalUrl);

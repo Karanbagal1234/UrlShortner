@@ -34,6 +34,7 @@ app.use("/auth", userRouter);
 app.use("/id", urlRouter);
 app.set("view engine", "ejs");
 
+
 app.get("/", isAuthenticate, async (req, res) => {
   if (!req.userId) {
     return res.status(200).json({ log: false });

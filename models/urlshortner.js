@@ -17,6 +17,7 @@ const urlSchema = mongoose.Schema({
   OrignalUrl: {
     type: String,
     required: true,
+    
   },
   clicks: [{ timestamp: { type: Date, default: Date.now } }],
 });

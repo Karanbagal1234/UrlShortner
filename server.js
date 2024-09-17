@@ -5,6 +5,7 @@ import app from './index.js';
 const PORT = process.env.PORT || 3000;
 
 const Showurl =(req,res,next)=>{
+    
     console.log(req.path);
     next()
 }

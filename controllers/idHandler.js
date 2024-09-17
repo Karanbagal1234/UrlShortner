@@ -9,6 +9,7 @@ export const idHandler = async (req, res, next) => {
   }
 
   try {
+    
     const requestUrl = await Urls.findOne({ ShortID: id });
 
     if (!requestUrl) {

@@ -6,6 +6,7 @@ export const isAuthenticate = (req, res, next) => {
 
   if (!authHeader) {
     throw new CustomError("Access denied. No token provided.", 401);
+    
   }
 
   const token = authHeader.split(" ")[1];

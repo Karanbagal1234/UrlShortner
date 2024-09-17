@@ -19,6 +19,7 @@ export const getAllUrls = async (req, res,next) => {
       throw new CustomError("No data found",500);
     }
     res.json(userUrls);
+    
   } catch (error) {
     next(error)
   }

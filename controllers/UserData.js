@@ -13,8 +13,11 @@ const getUserData = async (userId) => {
 
 // Controller to handle request and send response
 export const getAllUrls = async (req, res,next) => {
+  console.log("route hits")
   try {
     let userUrls = await getUserData(req.userId._id);
+    console.log(userUrls);
+    
     if(!userUrls) {
       throw new CustomError("No data found",500);
     }

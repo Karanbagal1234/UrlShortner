@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import userRouter from "./routes/user.js";
 import urlRouter from "./routes/urls.js";
+import AdminPanel from "./routes/admin.js";
 import { connect } from "./dbConnect.js";
 import cors from "cors";
 import bodyParser from "body-parser";
@@ -32,6 +33,10 @@ console.log(process.env.DB_URI);
 // Route handling
 app.use("/auth", userRouter);
 app.use("/id", urlRouter);
+app.use("/api",AdminPanel)
+
+
+
 app.set("view engine", "ejs");
 
 

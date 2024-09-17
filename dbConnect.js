@@ -4,7 +4,6 @@ export const connect = () => {
   mongoose
     .connect(process.env.DB_URI, {
       dbName: "user",
-  
     })
     .then(() => {
       console.log("database is connected");

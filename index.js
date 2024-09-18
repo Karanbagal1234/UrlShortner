@@ -8,7 +8,6 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import { isAuthenticate } from "./controllers/isAuthorize.js";
-import { idHandler } from "./controllers/idHandler.js";
 import { CustomError } from "./controllers/errorHandler.js";
 
 dotenv.config({ path: "./.env" });

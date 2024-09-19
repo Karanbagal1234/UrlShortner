@@ -10,8 +10,9 @@ export const register = async (req, res, next) => {
   try {
     //   // Check if user already exists
     const existingUser = await User.findOne({ email });
+    console.log(existingUser);
+    
     if (existingUser) {
-      console.log("user existed");
 
       throw new CustomError("User already exists", 409);
     }
@@ -52,7 +53,6 @@ export const login = async (req, res, next) => {
     if (!existingUser) {
       throw new CustomError("User does not exist", 404);
     }
-    console.log("user existed");
 
     // Check if password is correct
     const isPasswordCorrect = await bcryptjs.compare(
@@ -63,7 +63,6 @@ export const login = async (req, res, next) => {
     if (!isPasswordCorrect) {
       throw new CustomError("Invalid credentials", 400);
     }
-    console.log("password match");
 
     const token = jwt.sign({ ...existingUser._doc }, process.env.SECRET_KEY, {
       expiresIn: "24h",

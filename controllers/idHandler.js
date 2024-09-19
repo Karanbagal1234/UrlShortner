@@ -11,12 +11,15 @@ export const idHandler = async (req, res, next) => {
   try {
     
     const requestUrl = await Urls.findOne({ ShortID: id });
-
+   
     if (!requestUrl) {
       return next(new CustomError("URL not found.", 404));
     }
     console.log(requestUrl);
+    requestUrl.clicks.push({ timestamp: new Date() });
 
+    // Save the updated document
+    await requestUrl.save();
     res.status(200).json({ url: requestUrl.OrignalUrl });
   } catch (error) {
     next(error);

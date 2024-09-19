@@ -16,6 +16,9 @@ export const isAuthenticate = (req, res, next) => {
 
     req.userId = decoded;
 
+    console.log('pass request');
+    
+
     next();
   } catch (error) {
     next(error);

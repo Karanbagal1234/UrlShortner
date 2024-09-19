@@ -2,7 +2,6 @@ import { Urls } from '../models/urlshortner.js';
 import { CustomError } from './errorHandler.js';
 
 export const ShorturlConverter = async (req, res,next) => {
-  console.log("functiom triggger");
   
   try {
     

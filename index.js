@@ -2,11 +2,9 @@ import express from "express";
 import dotenv from "dotenv";
 import userRouter from "./routes/user.js";
 import urlRouter from "./routes/urls.js";
-import AdminPanel from "./routes/admin.js";
 import { connect } from "./dbConnect.js";
 import cors from "cors";
 import bodyParser from "body-parser";
-import cookieParser from "cookie-parser";
 import { isAuthenticate } from "./controllers/isAuthorize.js";
 import { CustomError } from "./controllers/errorHandler.js";
 
@@ -23,16 +21,15 @@ app.use(
     credentials: true,
   })
 );
-app.use(cookieParser());
+
 
 // Connect to the database
 connect();
-console.log(process.env.DB_URI);
+
 
 // Route handling
 app.use("/auth", userRouter);
 app.use("/id", urlRouter);
-app.use("/api",AdminPanel)
 
 
 
@@ -53,6 +50,8 @@ app.use("*", (req, res, next) => {
 });
 
 app.use((err, req, res, next) => {
+  console.log(err.message);
+  
   err.message = err.message || "Something went wrong";
   err.statusCode = err.statusCode || 500;
   res.status(err.statusCode).json({ message: err.message });

@@ -20,6 +20,8 @@ export const getAllUrls = async (req, res,next) => {
     if(!userUrls) {
       throw new CustomError("No data found",500);
     }
+    console.log(userUrls);
+    
     res.json(userUrls);
     
   } catch (error) {

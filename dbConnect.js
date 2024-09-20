@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 export const connect = () => {
   mongoose
-    .connect(process.env.NODE_ENV == "devlopment" ? process.env.DB_URI : "mongodb://localhost:27017/Shortner" , {
+    .connect("mongodb+srv://karanbagal01234:karanbagal01234@karanbagal.genn3.mongodb.net/", {
       dbName: "user",
     })
     .then(() => {

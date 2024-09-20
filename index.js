@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: process.env.Frontendurl,
+    origin: "*",
     credentials: true,
   })
 );
